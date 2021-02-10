@@ -1,5 +1,4 @@
 # PointChargeCEF
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 A python3 program to analyze crystal field excitations using effective point charges
 Created by Zhiling Dun (dunzhiling@gmail.com)
 
