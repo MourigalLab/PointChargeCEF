@@ -1,10 +1,11 @@
 # PointChargeCEF
-A python3 program to analyze crystal field excitations using effective point charges
+A python3 program to analyze crystal field excitations using effective point charges.
+
 Created by Zhiling Dun (dunzhiling@gmail.com)
 
 PointChargeCEF calculates crystal electric field (CEF) excitations of rare earth systems and performs fits to experimental inelastic neutron scattering spectrum using adjustable effective point-charges. 
 
-This program was originally developed to analyze the crystal field excitations and single-ion magnetism of the [tripod kagome magnets](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.157201), $\mathrm{R_3Mg_2Sb_3O_{14}}$ ($R =$ rare earth elements), where the determination of CEF parameters using conventional Stevens Operators approach is  challenging.
+This program was originally developed to analyze the crystal field excitations and single-ion magnetism of the [tripod kagome magnets](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.157201), R3Mg2Sb3O14 (R = rare earth elements), where the determination of CEF parameters using conventional Stevens Operators approach is  challenging.
 
 This repository contains all of the code and data that is used for our manuscirpt at [arXiv:2004.10957]( https://arxiv.org/abs/2004.10957). 
 
@@ -12,7 +13,7 @@ This repository contains all of the code and data that is used for our manuscirp
 
 ## Mathematics & Logic of Program
 1. The CEF Hamiltonian takes the form: 
-    \mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
 
     
 2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using  
