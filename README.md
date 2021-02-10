@@ -1,3 +1,5 @@
+<img src="https://render.githubusercontent.com/render/math?math=     ">
+
 # PointChargeCEF
 A python3 program to analyze crystal field excitations using effective point charges.
 
@@ -10,7 +12,7 @@ This program was originally developed to analyze the crystal field excitations a
 This repository contains all of the code and data that is used for our manuscirpt at [arXiv:2004.10957]( https://arxiv.org/abs/2004.10957). 
 
 
-<img src="https://render.githubusercontent.com/render/math?math=     ">
+
 ## Mathematics & Logic of Program
 1. The CEF Hamiltonian takes the form:  <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
 
