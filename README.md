@@ -13,7 +13,7 @@ This repository contains all of the code and data that is used for our manuscirp
 
 ## Mathematics & Logic of Program
 1. The CEF Hamiltonian takes the form: 
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
+    <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
 
     
 2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using  
