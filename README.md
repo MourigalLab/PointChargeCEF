@@ -10,22 +10,20 @@ This program was originally developed to analyze the crystal field excitations a
 This repository contains all of the code and data that is used for our manuscirpt at [arXiv:2004.10957]( https://arxiv.org/abs/2004.10957). 
 
 
-
+<img src="https://render.githubusercontent.com/render/math?math=     ">
 ## Mathematics & Logic of Program
-1. The CEF Hamiltonian takes the form: 
-    <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
+1. The CEF Hamiltonian takes the form:  <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
 
     
-2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using  
-$B^{m}_{n} = -\sum_{i} C^{m}_{n}\theta_n \langle r^n \rangle \gamma^{nm}_i q_i$
+2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using  <img src="https://render.githubusercontent.com/render/math?math= B^{m}_{n} = -\sum_{i} C^{m}_{n}\theta_n \langle r^n \rangle \gamma^{nm}_i q_i">
 
-3. We take number for $B^{m}_{n}$ from the output file simpre.out and calcualte the eigenstates ($E_i$) and eigenenergies ($\left|\Gamma_i\right\rangle$)
+3. We take number for <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n}"> from the output file simpre.out and calcualte the eigenstates (Ei) and eigenenergies (<img src="https://render.githubusercontent.com/render/math?math=\left|\Gamma_i\right\rangle">).
 
-4. We calcualte the inelastic neutron scattering spectrum using: <br />$I(\omega)$= $C \sum_{n, m} \frac{\sum_{\alpha=x,y,z}\left|\left\langle \Gamma_n\left|J_{\alpha}\right| \Gamma_{m}\right\rangle\right|^{2} \mathrm{e}^{-E_{n}/k_\mathrm{B}T}}{\sum_{j} \mathrm{e}^{-E_{j}/k_\mathrm{B}T}} \times\delta(\hbar\omega + E_n - E_m)$
+4. We calcualte the inelastic neutron scattering spectrum using: <img src="https://render.githubusercontent.com/render/math?math=I(\omega)$= $C \sum_{n, m} \frac{\sum_{\alpha=x,y,z}\left|\left\langle \Gamma_n\left|J_{\alpha}\right| \Gamma_{m}\right\rangle\right|^{2} \mathrm{e}^{-E_{n}/k_\mathrm{B}T}}{\sum_{j} \mathrm{e}^{-E_{j}/k_\mathrm{B}T}} \times\delta(\hbar\omega + E_n - E_m)     ">.
 
 5. The $\delta$ function above is convoluted to a Voigt function 
-$ V(\omega ; \sigma_G, \gamma_L) \equiv   \int_{-\infty}^{\infty}   G\left(x ; \sigma_G\right) L\left(\hbar\omega + E_n - E_m-x ; \gamma_L\right) d x$, <br />
-where $G$ is a Gaussian function to account for the  energy-resolution ($\sigma_G$)  of neutron scattering spectrometer, and $L$ is a Lorentzian function with $\gamma_L$ representing the intrinsic broadening (or finite lifetime) of CEF excitations.  We are now using the resolution for SEQUOIA, if you want to change the instrument resolution, one need to redefine function `PointchargeCEF.Instrument_resolution(x, Ei)`
+<img src="https://render.githubusercontent.com/render/math?math= V(\omega ; \sigma_G, \gamma_L) \equiv   \int_{-\infty}^{\infty}   G\left(x ; \sigma_G\right) L\left(\hbar\omega + E_n - E_m-x ; \gamma_L\right) d x$,  "> 
+where G is a Gaussian function to account for the  energy-resolution ($\sigma_G$)  of neutron scattering spectrometer, and $L$ is a Lorentzian function with $\gamma_L$ representing the intrinsic broadening (or finite lifetime) of CEF excitations.  We are now using the resolution for SEQUOIA, if you want to change the instrument resolution, one need to redefine function `PointchargeCEF.Instrument_resolution(x, Ei)`
 
 6. By varying the point charge parameters, a least-squares fit is performed to minimize the difference between calculated and observed CEF spectra. The agreement is measured by a self-defined weighted profile factor: 
 $R_{\mathrm{wp}} =  \frac{1}{N} \sqrt{\sum_{i} \left(\frac{I_i^{\text{calc}}-I_i^{\text{obs}}}{\sigma_i^\text{obs}}\right)^2}$
