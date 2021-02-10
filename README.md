@@ -1,5 +1,3 @@
-<img src="https://render.githubusercontent.com/render/math?math=     ">
-
 # PointChargeCEF
 A python3 program to analyze crystal field excitations using effective point charges.
 
@@ -17,7 +15,7 @@ This repository contains all of the code and data that is used for our manuscirp
 1. The CEF Hamiltonian takes the form:  <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
 
     
-2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using  <img src="https://render.githubusercontent.com/render/math?math= B^{m}_{n} = -\sum_{i} C^{m}_{n}\theta_n \langle r^n \rangle \gamma^{nm}_i q_i">
+2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n} = -\sum_{i} C^{m}_{n}\theta_n \langle r^n \rangle \gamma^{nm}_i q_i.">
 
 3. We take number for <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n}"> from the output file simpre.out and calcualte the eigenstates (Ei) and eigenenergies (<img src="https://render.githubusercontent.com/render/math?math=\left|\Gamma_i\right\rangle">).
 
