@@ -12,26 +12,20 @@ This repository contains all of the code and data that is used for our manuscirp
 
 
 ## Mathematics & Logic of Program
-1. The CEF Hamiltonian takes the form: <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{n,m} \left[ A^{m}_{n}  \theta_n \right] O^m_n= \sum_{n,m}B^{m}_{n} O^m_n.">
+1. The CEF Hamiltonian takes the form: <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{k,q} \left[ A^{q}_{k}  \theta_k \right] O^q_k= \sum_{k,q}B^{q}_{k} O^q_k.">
 
     
-2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n} = -\sum_{i} C^{m}_{n}\theta_n \langle r^n \rangle \gamma^{nm}_i q_i.">
+2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using <img src="https://render.githubusercontent.com/render/math?math=B^{q}_{k} = -\sum_{i} C^{q}_{k}\theta_k \langle r^k \rangle \gamma^{qk}_i q_i.">
 
-3. We take number for <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n}"> from the output file simpre.out and calcualte the eigenstates and eigenenergies.
+3. We take the numbers for <img src="https://render.githubusercontent.com/render/math?math=B^{q}_{k}"> from the output file 'simpre.out' and calcualte the eigenstates and eigenenergies.
 
-4. We calcualte the inelastic neutron scattering spectrum using:   <img src="https://render.githubusercontent.com/render/math?math=I(\omega)$= C \sum_{n, m} \frac{\sum_{\alpha=x,y,z}\left|\left\langle \Gamma_n\left|J_{\alpha}\right| \Gamma_{m}\right\rangle\right|^{2} \mathrm{e}^{-E_{n}/k_\mathrm{B}T}}{\sum_{j} \mathrm{e}^{-E_{j}/k_\mathrm{B}T}} \times\delta(\hbar\omega + E_n - E_m)">.
+4. We calcualte the inelastic neutron scattering spectrum using:   <img src="https://render.githubusercontent.com/render/math?math=I(\omega)= C \sum_{n, m} \frac{\sum_{\alpha=x,y,z}\left|\left\langle \Gamma_n\left|J_{\alpha}\right| \Gamma_{m}\right\rangle\right|^{2} \mathrm{e}^{-E_{n}/k_\mathrm{B}T}}{\sum_{j} \mathrm{e}^{-E_{j}/k_\mathrm{B}T}} \times\delta(\hbar\omega %2B E_n - E_m)">.
 
-5. The $\delta$ function above is convoluted to a Voigt function 
-<img src="https://render.githubusercontent.com/render/math?math= V(\omega ; \sigma_G, \gamma_L) \equiv   \int_{-\infty}^{\infty}   G\left(x ; \sigma_G\right) L\left(\hbar\omega + E_n - E_m-x ; \gamma_L\right) d x$,  "> 
-where G is a Gaussian function to account for the  energy-resolution ($\sigma_G$)  of neutron scattering spectrometer, and $L$ is a Lorentzian function with $\gamma_L$ representing the intrinsic broadening (or finite lifetime) of CEF excitations.  We are now using the resolution for SEQUOIA, if you want to change the instrument resolution, one need to redefine function `PointchargeCEF.Instrument_resolution(x, Ei)`
+5. The delta function above is convoluted to a Voigt function where the Gaussian function is used to account for the  energy-resolution of neutron spectrometer, and the a Lorentzian function represents the intrinsic broadening (or finite lifetime) of CEF excitations.  We are now using the resolution for SEQUOIA, if you want to change the instrument resolution, one need to re-define function `PointchargeCEF.Instrument_resolution(x, Ei)`
 
-6. By varying the point charge parameters, a least-squares fit is performed to minimize the difference between calculated and observed CEF spectra. The agreement is measured by a self-defined weighted profile factor: 
-$R_{\mathrm{wp}} =  \frac{1}{N} \sqrt{\sum_{i} \left(\frac{I_i^{\text{calc}}-I_i^{\text{obs}}}{\sigma_i^\text{obs}}\right)^2}$
+6. By varying the point charge parameters, a least-squares fit is performed to minimize the difference between calculated and observed CEF spectra. The agreement is measured by a self-defined weighted profile factor: <img src="https://render.githubusercontent.com/render/math?math=R_{\mathrm{wp}} =  \frac{1}{N} \sqrt{\sum_{i} \left(\frac{I_i^{\text{calc}}-I_i^{\text{obs}}}{\sigma_i^\text{obs}}\right)^2}">
 
-7. Static magnetic properties in an external magnetic field $\mathbf{H}$ can also be calculated from the single-ion CEF Hamiltonian,$\mathcal{H} =  \mathcal{H}_{\mathrm{CEF}} - \mu_{B} g_{J}  \mathbf{H} \cdot \mathbf{J}$.
-    With the eigenstate ($E_{n}$) and eigenfunction ($\left|\Gamma_i\right\rangle$) of the CEF Hamiltonian available, the three components ($\alpha=x,y,z$) of the magnetization $\mathbf{M}^\text{CEF}(\mathbf{H}, T)$ in a Cartesian coordinate system are given by
-$M^\text{CEF}_\alpha(\mathbf{H}, T) = g_J\sum_{n} e^{-\frac{E_n}{k_{\rm B} T}} \left\langle n\left|J_\alpha\right|n\right\rangle /\sum_{n} e^{-\frac{-E_n}{k_{\rm B} T}}, 
-$, from which the DC magnetic susceptibility tensor can be calculated numerically following $\chi_{\alpha\beta}  =\frac{\partial M_{\alpha}}{\partial H_{\beta}}$. 
+7. Static magnetic properties in an external magnetic field $\mathbf{H}$ can also be calculated from the single-ion CEF Hamiltonian, <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H} =  \mathcal{H}_{\mathrm{CEF}} - \mu_{B} g_{J}  \mathbf{H} \cdot \mathbf{J}">. The three components of the magnetizationin a Cartesian coordinate system are given by: <img src="https://render.githubusercontent.com/render/math?math=M^\text{CEF}_\alpha(\mathbf{H}, T) = g_J\sum_{n} e^{-\frac{E_n}{k_{\rm B} T}} \left\langle n\left|J_\alpha\right|n\right\rangle /\sum_{n} e^{-\frac{-E_n}{k_{\rm B} T}}">, from which the DC magnetic susceptibility tensor can be calculated numerically following <img src="https://render.githubusercontent.com/render/math?math=\chi_{\alpha\beta}  =\frac{\partial M_{\alpha}}{\partial H_{\beta}}">. 
 
 ## How to Use
 ### (A) Usage
@@ -51,12 +45,12 @@ To run this program, you must have a Python3 environment.  A Jupyter notebook is
      
 ### (C) Create a point charge model
 
-1. define effective point charge variables. Take Ho$_2$Ti$_2$O$_7$ for example (
+1. define effective point charge variables. Take Ho2Ti2O7 for example (
 see R2Ti2O7/R2Ti2O7.ipynb), for the eight effective point charges, there are two distance rariables 'R1', 'R2' , one angluar variable 'Theta', and  two charge amount variable 'q1', 'q2': 
 
     `HTO.PC_variable = 'R1', 'R2', 'Theta', 'q1', 'q2'`
 
-2. add each point charge in spherical coordination, for Ho$_2$Ti$_2$O$_7$, they are:
+2. add each point charge in spherical coordination, for Ho2Ti2O7, they are:
 
     `HTO.addPC('R1, 0, 0, q1')` <br />
     `HTO.addPC('R1, 180, 0, q1')` <br />
@@ -82,8 +76,13 @@ see R2Ti2O7/R2Ti2O7.ipynb), for the eight effective point charges, there are two
 
     `HTO.readBkq()`
     
-    About this function:
+    
+    
+    
+    this function:
+        
         PointChargeCEF.readBkq(filename='simpre.out', unit='meV', convention='Steven', printcontol='yes'), 
+        
         Parameters
         [filename]: file to read. 
         [unit]:   unit of CEF parameters, either 'meV' or 'K' 
@@ -96,13 +95,14 @@ see R2Ti2O7/R2Ti2O7.ipynb), for the eight effective point charges, there are two
     `HTO.Evaluate_pattern(Ei=80, Temperature=5, Plotcontrol=True, UsePCini=True);`
     
     About this function:
+        
         PointChargeCEF.Evaluate_pattern(Ei = 160, Temperature = 5, dataset='', Field=[0,0,0], FWHM=0.5, SpecialFWHM=[0,0,0], UsePCini=False, Plotcontrol=False, Chi2Method='linear'): 
         
         Parameters
         [Ei]: incident energy of neutron. 
         [Temperature]:   tempearture of experiment in the unit of Kelvin.
-        [dataset]: index for experimental dataset. If given, use E$_i$, Temperature, and neutron energy transfer from that dataset. 
-        [UsePCini]: control parameter, if this value = True, use intitial values of effective point charge parameters to evaluate the pattern; if this value = False, use the Stevens Opeartors (k, q, B$_{kq}$) from fitted to point charge parameters to evaluate the pattern.
+        [dataset]: index for experimental dataset. If given, use Ei, Temperature, and neutron energy transfer from that dataset. 
+        [UsePCini]: control parameter, if this value = True, use intitial values of effective point charge parameters to evaluate the pattern; if this value = False, use the Stevens Opeartors (k, q, Bkq) from fitted to point charge parameters to evaluate the pattern.
         [Field]: vector, external magnetic field. 
         [FWHM]: full-width-half maximum of the Lorentian function, cossponding to the intrinsic broadening of CEF excitations.
         [plotcontol]: if this value = True, creat a plot for the scattering spectrum.
@@ -114,7 +114,7 @@ see R2Ti2O7/R2Ti2O7.ipynb), for the eight effective point charges, there are two
 
 
 ### (E) Effective point charge fit
-1. Define experimental data. We take $\mathrm{Yb_3Mg_2Sb_3O_{14}}$  as an exmaple here (see Tripod Kagome/Yb3Mg2Sb3O14/YMSO_CEF.ipynb). <br />
+1. Define experimental data. We take Yb3Mg2Sb3O14 as an exmaple here (see Tripod Kagome/Yb3Mg2Sb3O14/YMSO_CEF.ipynb). <br />
     First we creat an CEFmodel:
     
     `YMSO=CEF.CEFmodel('Yb3+')`
@@ -127,17 +127,18 @@ see R2Ti2O7/R2Ti2O7.ipynb), for the eight effective point charges, there are two
     
     `YMSO.addINSdata(Exp_1, Ei = 240, Temperature = 5, SpecialFWHM=[88,92, 3])`
     
-    One should add observed energy levels as well for fitting purpose. This is used to creat a smooth  $\chi^2$ function for quick converngence. One need to input an array with length of 2J+1 (J is the total angular momentum of R$^{3+}$ ion), use 0 for uncertain levels, e.g.
+    One should add observed energy levels as well for fitting purpose. This is used to creat a smooth  χ2 function for quick converngence. One need to input an array with length of 2J+1 (J is the total angular momentum of rare earth ion), use 0 for uncertain levels, e.g.
     
     `YMSO.levels_obs=[0, 0, 69, 69, 89, 89, 114, 114] `
     
-2. To perform an effective point charge fit, go with function PointChargeCEF.PCfit(), one can specific what paramters to fit, Targeted $\chi^2$ for the eigenenergies, e.g. 
+2. To perform an effective point charge fit, go with function PointChargeCEF.PCfit(), one can specific what paramters to fit, Targeted χ2 for the eigenenergies, e.g. 
 
     `YMSO.PCfit(Fit_variable=['R1', 'R2', 'R3', 'FWHM'])`
 
-    Here, PCfit uses a spefific Search Mearthod to evaluate function PointChargeCEF.Chi2_INS(), which is defined to evaluate the least square error between calcualted and observed pattern, the $\chi^2$ is weighted by a factor of  max(1,Chi2_energy/TargetChi2energy).
+    Here, PCfit uses a spefific Search Mearthod to evaluate function PointChargeCEF.Chi2_INS(), which is defined to evaluate the least square error between calcualted and observed pattern, the χ2 is weighted by a factor of  max(1,Chi2_energy/TargetChi2energy).
 
     About this function:
+    
         PointChargeCEF.PCfit( Fit_variable = 'All', SearchMethod ='Nelder-Mead', Chi2Method='linear', Bonds= None, Tolfun=1e-3, TargetChi2energy = 1.0):  
         
         Parameters
@@ -188,11 +189,11 @@ YbMSO.Powder_Magnetization(dataset=0, B_range=H, intergration_step=10)`
     
     `TMGO.StevenOpfit() `
     
-2.  Convert Stevens Operators coeiffients from Stevens convention ($𝐵_𝑘^𝑞$) to Wybourne convention ($𝐵_q^k$), e.g.
+2.  Convert Stevens Operators coeiffients from Stevens convention (𝐵_𝑘^𝑞) to Wybourne convention (𝐵_q^k), e.g.
 
     `PointchargeCEF.BkqtoAkq(TMGO.Bkq,'Tm3+')`
     
-3. Convert between $𝐵_𝑘^𝑞$ and $A_𝑘^𝑞$
+3. Convert between 𝐵_𝑘^𝑞 and A_𝑘^𝑞
     
     use function `PointchargeCEF.BkqtoAkq(Bkq, Ion)` or `PointchargeCEF.AkqtoBkq(Akq, Ion)`
     
