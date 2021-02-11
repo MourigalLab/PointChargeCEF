@@ -185,7 +185,7 @@ YbMSO.Powder_Magnetization(dataset=0, B_range=H, intergration_step=10)`
     
 ### (G) Other tools
 1. Conventional Stevens Operators fit <br />
-    With intial values of CEF parameters give, the conventional Stevens Operator fit can be done within a single line, e.g. for the example of  TmMgGaO4/TMGO.ipynb
+    With intial values of CEF parameters given, the conventional Stevens Operator fit can be done within a single line, e.g. for the example of  TmMgGaO4/TMGO.ipynb
     
     `TMGO.StevenOpfit() `
     
