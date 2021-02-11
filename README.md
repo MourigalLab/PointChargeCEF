@@ -9,7 +9,7 @@ This program was originally developed to analyze the crystal field excitations a
 
 This repository contains all of the code and data that is used for our manuscirpt at [arXiv:2004.10957]( https://arxiv.org/abs/2004.10957). 
 
-
+Cite the code: [![DOI](https://zenodo.org/badge/337883279.svg)](https://zenodo.org/badge/latestdoi/337883279)
 
 ## Mathematics & Logic of Program
 1. The CEF Hamiltonian takes the form: <img src="https://render.githubusercontent.com/render/math?math=\mathcal{H}_{\mathrm{CEF}} = \sum_{k,q} \left[ A^{q}_{k}  \theta_k \right] O^q_k= \sum_{k,q}B^{q}_{k} O^q_k.">
