@@ -17,9 +17,9 @@ This repository contains all of the code and data that is used for our manuscirp
     
 2. The point charge calculation is performed using existing software package [SIMPRE](https://pubmed.ncbi.nlm.nih.gov/24000391/), which calcualtes CEF paramers using <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n} = -\sum_{i} C^{m}_{n}\theta_n \langle r^n \rangle \gamma^{nm}_i q_i.">
 
-3. We take number for <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n}"> from the output file simpre.out and calcualte the eigenstates (Ei) and eigenenergies (<img src="https://render.githubusercontent.com/render/math?math=\left|\Gamma_i\right\rangle">).
+3. We take number for <img src="https://render.githubusercontent.com/render/math?math=B^{m}_{n}"> from the output file simpre.out and calcualte the eigenstates and eigenenergies.
 
-4. We calcualte the inelastic neutron scattering spectrum using: <img src="https://render.githubusercontent.com/render/math?math=I(\omega)$= $C \sum_{n, m} \frac{\sum_{\alpha=x,y,z}\left|\left\langle \Gamma_n\left|J_{\alpha}\right| \Gamma_{m}\right\rangle\right|^{2} \mathrm{e}^{-E_{n}/k_\mathrm{B}T}}{\sum_{j} \mathrm{e}^{-E_{j}/k_\mathrm{B}T}} \times\delta(\hbar\omega + E_n - E_m)     ">.
+4. We calcualte the inelastic neutron scattering spectrum using:  <br \> <img src="https://render.githubusercontent.com/render/math?math=I(\omega)$= $C \sum_{n, m} \frac{\sum_{\alpha=x,y,z}\left|\left\langle \Gamma_n\left|J_{\alpha}\right| \Gamma_{m}\right\rangle\right|^{2} \mathrm{e}^{-E_{n}/k_\mathrm{B}T}}{\sum_{j} \mathrm{e}^{-E_{j}/k_\mathrm{B}T}} \times\delta(\hbar\omega + E_n - E_m)">.
 
 5. The $\delta$ function above is convoluted to a Voigt function 
 <img src="https://render.githubusercontent.com/render/math?math= V(\omega ; \sigma_G, \gamma_L) \equiv   \int_{-\infty}^{\infty}   G\left(x ; \sigma_G\right) L\left(\hbar\omega + E_n - E_m-x ; \gamma_L\right) d x$,  "> 
